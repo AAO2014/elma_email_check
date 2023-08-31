@@ -13,7 +13,7 @@ DATABASE_PASSWORD = os.environ.get('DATABASE_PASSWORD')
 DATABASE_HOST = os.environ.get('DATABASE_HOST')
 DATABASE_NAME = os.environ.get('DATABASE_NAME')
 DATABASE_URI = f'postgresql://{DATABASE_USER}:{DATABASE_PASSWORD}@{DATABASE_HOST}:5432/{DATABASE_NAME}'
-EMAIL_CHECK_QUERY = 'select count (email) from up_users where email = (%s)'
+EMAIL_CHECK_QUERY = 'SELECT COUNT(email) FROM up_users WHERE LOWER(email) = LOWER(%s)'
 
 
 def is_email_verified(email):
